@@ -13,6 +13,7 @@ public class Program {
 		Scanner sc = new Scanner(System.in);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		try {
+			
 			System.out.println("Room number: ");
 			int number = sc.nextInt();
 			System.out.println("Check-in date (dd/MM/yyyy): ");
@@ -34,7 +35,13 @@ public class Program {
 			reservation.updateDates(checkIn, checkOut);
 			System.out.println("Reservation: " + reservation);
 		}	
-			
+		catch (ParseException e) {
+			System.out.println("Invalid date format");
+		}
+		catch(IllegalArgumentException e) {
+			System.out.println("Error in reservation: "+ e.getMessage());
+		}
+		sc.close();
 		}
 		
 		
